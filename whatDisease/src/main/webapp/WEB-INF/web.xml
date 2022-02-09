@@ -18,4 +18,8 @@
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>/faces/*</url-pattern>
   </servlet-mapping>
+  <!--  carregamento e o fechamento ADEQUADO do Hibernate -->
+  <listener>
+	<listener-class>br.com.imd.whatDisease.util.HibernateContexto</listener-class>
+  </listener>
 </web-app>
