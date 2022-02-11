@@ -21,6 +21,7 @@ public class GenericDAO <Entidade> implements Serializable {
 
 	private final Class<Entidade> classe;
 
+	@SuppressWarnings("unchecked")
 	public GenericDAO() {
 		this.classe = (Class<Entidade>) ((ParameterizedType) getClass().getGenericSuperclass())
 				.getActualTypeArguments()[0];

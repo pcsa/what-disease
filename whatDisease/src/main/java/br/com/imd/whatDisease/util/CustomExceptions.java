@@ -2,6 +2,11 @@ package br.com.imd.whatDisease.util;
 
 public class CustomExceptions extends Exception {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public CustomExceptions() {
 		super();
 	}

@@ -12,7 +12,7 @@ public class HibernateUtil {
 //            return new Configuration().configure().buildSessionFactory(
 //			    new StandardServiceRegistryBuilder().build() );
         	Configuration configuracao = new Configuration();
-        	configuracao.configure("hibernate.cfg.xml");
+        	configuracao.configure("hibernate_mysql.cfg.xml");
         	return configuracao.buildSessionFactory();
         }
         catch (Throwable ex) {
