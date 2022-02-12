@@ -30,6 +30,9 @@
 
         <!-- Drop and re-create the database schema on startup --> <!--  create, update, validate -->
         <property name="hbm2ddl.auto">create</property>
+        <property name="hibernate.hbm2ddl.import_files">
+            /data.sql
+        </property>
 
         <mapping class="br.com.imd.whatDisease.dominio.Doenca"/>
         <mapping class="br.com.imd.whatDisease.dominio.Sintoma"/>

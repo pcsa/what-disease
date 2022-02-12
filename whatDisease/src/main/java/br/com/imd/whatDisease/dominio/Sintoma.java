@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,7 +27,7 @@ public class Sintoma {
 	private String nome;
 	
 	@JsonIgnore
-	@ManyToMany(mappedBy = "sintomas")
+	@ManyToMany(mappedBy = "sintomas", fetch = FetchType.EAGER)
 	private Set<Doenca> doencas = new HashSet<>();
 
 	public Sintoma(Integer id, String nome) {
