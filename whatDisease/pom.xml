@@ -10,7 +10,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>WhatDisease</name>
+	<name>whatDisease</name>
 	<url>http://www.example.com</url>
 
 	<properties>
