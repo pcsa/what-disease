@@ -32,7 +32,7 @@
         <property name="hbm2ddl.auto">create</property>
 
         <mapping class="br.com.imd.whatDisease.dominio.Doenca"/>
-        <mapping class="br.com.imd.whatDisease.dominio.Remedio"/>
+        <mapping class="br.com.imd.whatDisease.dominio.Sintoma"/>
         <mapping class="br.com.imd.whatDisease.dominio.Paciente"/>
         <mapping class="br.com.imd.whatDisease.dominio.Medico"/>
 

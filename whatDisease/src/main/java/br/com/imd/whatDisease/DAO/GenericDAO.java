@@ -10,7 +10,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
 import br.com.imd.whatDisease.util.HibernateUtil;
-import br.com.imd.whatDisease.util.CustomExceptions;
+import br.com.imd.whatDisease.util.CustomException;
 
 public class GenericDAO <Entidade> implements Serializable {
 	
@@ -27,7 +27,7 @@ public class GenericDAO <Entidade> implements Serializable {
 				.getActualTypeArguments()[0];
 	}
 
-	public void salvar(Entidade entidade) throws CustomExceptions {
+	public void salvar(Entidade entidade) throws CustomException {
 		// 1. Abre a sessao
 		Session sessao = HibernateUtil.getFabricaDeSessoes().openSession();
 
@@ -41,7 +41,7 @@ public class GenericDAO <Entidade> implements Serializable {
 			if (sessao.getTransaction().isActive()) {
 				sessao.getTransaction().rollback();
 			}
-			throw new CustomExceptions("Erro ao salvar registro: " + he.getMessage());
+			throw new CustomException("Erro ao salvar registro: " + he.getMessage());
 		} finally {
 			// TODO: handle finally clause
 			if (sessao.isOpen()) {
@@ -50,7 +50,7 @@ public class GenericDAO <Entidade> implements Serializable {
 		}
 	}
 
-	public void atualizar(Entidade entidade) throws CustomExceptions {
+	public void atualizar(Entidade entidade) throws CustomException {
 		// 1. Abre a sessao
 		Session sessao = HibernateUtil.getFabricaDeSessoes().openSession();
 
@@ -64,7 +64,7 @@ public class GenericDAO <Entidade> implements Serializable {
 			if (sessao.getTransaction().isActive()) {
 				sessao.getTransaction().rollback();
 			}
-			throw new CustomExceptions("Erro ao atualizar registro: " + he.getMessage());
+			throw new CustomException("Erro ao atualizar registro: " + he.getMessage());
 		} finally {
 			// TODO: handle finally clause
 			if (sessao.isOpen()) {
@@ -73,7 +73,7 @@ public class GenericDAO <Entidade> implements Serializable {
 		}
 	}
 
-	public void excluir(Entidade entidade) throws CustomExceptions {
+	public void excluir(Entidade entidade) throws CustomException {
 		// 1. Abre a sessao
 		Session sessao = HibernateUtil.getFabricaDeSessoes().openSession();
 
@@ -87,7 +87,7 @@ public class GenericDAO <Entidade> implements Serializable {
 			if (sessao.getTransaction().isActive()) {
 				sessao.getTransaction().rollback();
 			}
-			throw new CustomExceptions("Erro ao excluir registro: " + he.getMessage());
+			throw new CustomException("Erro ao excluir registro: " + he.getMessage());
 		} finally {
 			// TODO: handle finally clause
 			if (sessao.isOpen()) {
@@ -96,7 +96,7 @@ public class GenericDAO <Entidade> implements Serializable {
 		}
 	}
 
-	public List<Entidade> listar() throws CustomExceptions {
+	public List<Entidade> listar() throws CustomException {
 		Session sessao = HibernateUtil.getFabricaDeSessoes().openSession();
 		List<Entidade> lista = null;
 
@@ -112,7 +112,7 @@ public class GenericDAO <Entidade> implements Serializable {
 			if (sessao.getTransaction().isActive()) {
 				sessao.getTransaction().rollback();
 			}
-			throw new CustomExceptions("Erro ao listar registros: " + he.getMessage());
+			throw new CustomException("Erro ao listar registros: " + he.getMessage());
 		} finally {
 			// TODO: handle finally clause
 			if (sessao.isOpen()) {
@@ -122,7 +122,7 @@ public class GenericDAO <Entidade> implements Serializable {
 		return lista;
 	}
 
-	public Entidade buscarId(Integer id) throws CustomExceptions {
+	public Entidade buscarId(Integer id) throws CustomException {
 		// 1. Abre a sessao
 		Session sessao = HibernateUtil.getFabricaDeSessoes().openSession();
 		Entidade entidade = null;
@@ -136,7 +136,7 @@ public class GenericDAO <Entidade> implements Serializable {
 			if (sessao.getTransaction().isActive()) {
 				sessao.getTransaction().rollback();
 			}
-			throw new CustomExceptions("Erro ao buscar id do registro: " + he.getMessage());
+			throw new CustomException("Erro ao buscar id do registro: " + he.getMessage());
 		} finally {
 			// TODO: handle finally clause
 			if (sessao.isOpen()) {
