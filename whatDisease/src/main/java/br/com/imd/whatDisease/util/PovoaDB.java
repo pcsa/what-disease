@@ -123,12 +123,12 @@ public class PovoaDB {
 
 			System.out.println("Relacionamento doenca-sintoma gerado!");
 
-			pacienteDAO.salvar(new Paciente(null, "Paciente1", "123", "power_poul", "M", 35, 100.0, 1.75));
+			pacienteDAO.salvar(new Paciente(null, "Paciente1", "power_poul", "123", "M", 35, 100.0, 1.75));
 
 			System.out.println("Pacientes salvos!");
 
-			medicoDAO.salvar(new Medico(null, "Medico1", "123", "power_poul", "M", 30, "12345"));
-			medicoDAO.salvar(new Medico(null, "Medico2", "123", "gabi", "F", 28, "54321"));
+			medicoDAO.salvar(new Medico(null, "Medico1", "op", "123", "M", 30, "12345"));
+			medicoDAO.salvar(new Medico(null, "Medico2", "gabi", "123", "F", 28, "54321"));
 			System.out.println("Medicos salvos!");
 
 			System.out.println("Finalizou a geração de tabelas!");

@@ -25,11 +25,13 @@ public class MedicoMBean implements Serializable{
 		medicoDAO.excluir(medico);
 	}
 	
-	public void gravar() throws CustomException {
+	public String gravar() throws CustomException {
 		if(this.medico.getId() == null) {
 			medicoDAO.salvar(this.medico);
+			return "/login.xhtml";
 		} else {
 			medicoDAO.atualizar(this.medico);
+			return "";
 		}
 	}
 	

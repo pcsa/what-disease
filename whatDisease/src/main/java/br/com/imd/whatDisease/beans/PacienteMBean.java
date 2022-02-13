@@ -24,12 +24,14 @@ public class PacienteMBean implements Serializable {
 		pacienteDAO.excluir(paciente);
 	}
 	
-	public void gravar() throws CustomException {
+	public String gravar() throws CustomException {
 		
 		if(this.paciente.getId() == null) {
 			pacienteDAO.salvar(this.paciente);
+			return "/login.xhtml";
 		} else {
 			pacienteDAO.atualizar(this.paciente);
+			return "";
 		}
 	}
 	
