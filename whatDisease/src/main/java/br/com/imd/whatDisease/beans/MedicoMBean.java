@@ -3,8 +3,8 @@ package br.com.imd.whatDisease.beans;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-
-
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 import br.com.imd.whatDisease.DAO.MedicoDAO;
 import br.com.imd.whatDisease.dominio.Medico;
@@ -28,9 +28,11 @@ public class MedicoMBean implements Serializable{
 	public String gravar() throws CustomException {
 		if(this.medico.getId() == null) {
 			medicoDAO.salvar(this.medico);
-			return "/login.xhtml";
+			return "login?faces-redirect=true";
 		} else {
-			medicoDAO.atualizar(this.medico);
+			//medicoDAO.atualizar(this.medico);
+			HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+			session.invalidate();
 			return "";
 		}
 	}

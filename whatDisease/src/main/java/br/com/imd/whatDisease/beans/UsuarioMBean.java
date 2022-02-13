@@ -4,6 +4,7 @@ import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 import br.com.imd.whatDisease.DAO.MedicoDAO;
 import br.com.imd.whatDisease.DAO.PacienteDAO;
@@ -34,7 +35,9 @@ public class UsuarioMBean {
 				return "";
 			}else {
 				this.medico = medicoDAO.buscarId(userID);
-				return "/index.xhtml";
+				HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(false);
+				session.setAttribute("user", this.medico);
+				return "index?faces-redirect=true";
 			}
 		} else {
 			Integer userID = pacienteDAO.checkLogin(this.usuario.getEmail(), this.usuario.getSenha());
@@ -43,7 +46,9 @@ public class UsuarioMBean {
 				return "";
 			}else {
 				this.paciente = pacienteDAO.buscarId(userID);
-				return "/index.xhtml";
+				HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(false);
+				session.setAttribute("user", this.paciente);
+				return "index?faces-redirect=true";
 			}
 		}
 	}

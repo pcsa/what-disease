@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 import br.com.imd.whatDisease.DAO.PacienteDAO;
 import br.com.imd.whatDisease.dominio.Paciente;
@@ -28,9 +30,11 @@ public class PacienteMBean implements Serializable {
 		
 		if(this.paciente.getId() == null) {
 			pacienteDAO.salvar(this.paciente);
-			return "/login.xhtml";
+			return "login?faces-redirect=true";
 		} else {
-			pacienteDAO.atualizar(this.paciente);
+			//pacienteDAO.atualizar(this.paciente);
+			HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+			session.invalidate();
 			return "";
 		}
 	}
