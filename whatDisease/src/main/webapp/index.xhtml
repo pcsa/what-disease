@@ -16,57 +16,9 @@
 	<ui:define name="content">
 		<h:messages globalOnly="true" />
 		<h:body>
-			<h:outputLabel>Página inicial</h:outputLabel>
-			<div class="card">
-
-				<h:form id="formCadastroMedico">
-					<p:messages id="msgs" />
-					<p:fieldset legend="Dados Pessoais" id="dadosMedico">
-
-						<h:panelGrid columns="3" cellpadding="5" styleClass="p-mb-3">
-							<p:outputLabel value="Nome: " for="nome" />
-							<p:inputText id="nome" placeholder="Inserir nome"
-								value="#{medicoMBean.medico.nome}" required="true"
-								requiredMessage="Informe o nome!">
-								<p:ajax event="blur" update="nome msgNome msgs" />
-							</p:inputText>
-							<p:message for="nome" id="msgNome" />
-
-							<p:outputLabel value="Genero: " for="genero" />
-							<p:inputText id="genero" placeholder="Inserir Genero"
-								value="#{medicoMBean.medico.genero}" required="true"
-								requiredMessage="Informe o Genero!">
-								<p:ajax event="blur" update="genero msgGenero msgs" />
-							</p:inputText>
-							<p:message for="genero" id="msgGenero" />
-
-							<p:outputLabel value="Idade: " for="idade" />
-							<p:inputText id="idade" placeholder="Inserir idade"
-								value="#{medicoMBean.medico.idade}" required="true"
-								requiredMessage="Informe a idade!">
-								<p:ajax event="blur" update="idade msgIdade msgs" />
-							</p:inputText>
-							<p:message for="idade" id="msgIdade" />
-
-							<p:outputLabel value="Registro: " for="registroMedico" />
-							<p:inputText id="registroMedico"
-								placeholder="Inserir registroMedico"
-								value="#{medicoMBean.medico.registroMedico}" required="true"
-								requiredMessage="Informe o registro medico">
-								<p:ajax event="blur"
-									update="registroMedico msgRegistroMedico msgs" />
-							</p:inputText>
-							<p:message for="registroMedico" id="msgRegistroMedico" />
-
-						</h:panelGrid>
-
-					</p:fieldset>
-					<br />
-					<p:commandButton action="#{medicoMBean.gravar}" value="Gravar"
-						icon="pi pi-plus" update="msgs formCadastroMedico"
-						styleClass="ui-button-success" />
-
-				</h:form>
+			<div class="card center">
+				<div id="chart_div"></div>
+				<p>Google Chart API</p>
 			</div>
 		</h:body>
 	</ui:define>

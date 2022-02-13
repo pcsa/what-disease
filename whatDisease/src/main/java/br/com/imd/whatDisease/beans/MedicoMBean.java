@@ -26,7 +26,6 @@ public class MedicoMBean implements Serializable{
 	}
 	
 	public void gravar() throws CustomException {
-		
 		if(this.medico.getId() == null) {
 			medicoDAO.salvar(this.medico);
 		} else {

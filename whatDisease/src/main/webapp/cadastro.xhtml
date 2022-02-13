@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/defaultPage.xhtml">
+	<ui:define name="content">
+		<h:messages globalOnly="true" />
+		<h:body>
+			<div class="card">
+				<div class="half-width">
+					<div id="menu-superior">
+						<p:tabView>
+							<p:tab title="Paciente" icon="pi pi-fw pi-users">
+								<div class="card">
+									<h:form id="formCadastroPaciente">
+										<p:messages id="msgs" />
+										<p:fieldset legend="Dados Pessoais" id="dadosPaciente">
+
+											<h:panelGrid columns="3" cellpadding="5" styleClass="p-mb-3">
+												<p:outputLabel value="Nome: " for="nome" />
+												<p:inputText id="nome" placeholder="Inserir nome"
+													value="#{pacienteMBean.paciente.nome}" required="true"
+													requiredMessage="Informe o nome!">
+													<p:ajax event="blur" update="nome msgNome msgs" />
+												</p:inputText>
+												<p:message for="nome" id="msgNome" />
+
+												<p:outputLabel value="Email: " for="email" />
+												<p:inputText id="email" placeholder="Inserir email"
+													value="#{pacienteMBean.paciente.email}" required="true"
+													requiredMessage="Informe o email!">
+													<p:ajax event="blur" update="email msgEmail msgs" />
+												</p:inputText>
+												<p:message for="email" id="msgEmail" />
+												
+												<p:outputLabel value="Senha: " for="senha" />
+												<p:inputText id="senha" placeholder="Inserir senha"
+													value="#{pacienteMBean.paciente.senha}" required="true"
+													requiredMessage="Informe a senha!">
+													<p:ajax event="blur" update="senha msgSenha msgs" />
+												</p:inputText>
+												<p:message for="senha" id="msgSenha" />
+
+												<p:outputLabel value="Genero: " for="genero" />
+												<p:inputText id="genero" placeholder="Inserir Genero"
+													value="#{pacienteMBean.paciente.genero}" required="true"
+													requiredMessage="Informe o Genero!">
+												</p:inputText>
+												<p:message for="genero" id="msgGenero" />
+
+												<p:outputLabel value="Idade: " for="idade" />
+												<p:inputText id="idade" placeholder="Inserir idade"
+													value="#{pacienteMBean.paciente.idade}" required="true"
+													requiredMessage="Informe a idade!">
+													<p:ajax event="blur" update="idade msgIdade msgs" />
+												</p:inputText>
+												<p:message for="idade" id="msgIdade" />
+
+												<p:outputLabel value="Peso: " for="peso" />
+												<p:inputText id="peso" placeholder="Inserir Peso (kg)"
+													value="#{pacienteMBean.paciente.peso}" required="true"
+													requiredMessage="Informe o peso">
+													<p:ajax event="blur" update="peso msgPeso msgs" />
+												</p:inputText>
+												<p:message for="peso" id="msgPeso" />
+
+												<p:outputLabel value="Altura: " for="altura" />
+												<p:inputText id="altura" placeholder="Inserir altura (m)"
+													value="#{pacienteMBean.paciente.altura}" required="true"
+													requiredMessage="Informe a altura">
+													<p:ajax event="blur" update="altura msgAltura msgs" />
+												</p:inputText>
+												<p:message for="altura" id="msgAltura" />
+
+											</h:panelGrid>
+
+										</p:fieldset>
+										<br />
+										<p:commandButton action="#{pacienteMBean.gravar}"
+											value="Gravar" icon="pi pi-plus"
+											update="msgs formCadastroPaciente"
+											styleClass="ui-button-success" />
+
+									</h:form>
+								</div>
+							</p:tab>
+							<p:tab title="Medico" icon="pi pi-fw pi-heart">
+								<div class="card">
+
+									<h:form id="formCadastroMedico">
+										<p:messages id="msgs" />
+										<p:fieldset legend="Dados Pessoais" id="dadosMedico">
+
+											<h:panelGrid columns="3" cellpadding="5" styleClass="p-mb-3">
+												<p:outputLabel value="Nome: " for="nome" />
+												<p:inputText id="email" placeholder="Inserir nome"
+													value="#{medicoMBean.medico.nome}" required="true"
+													requiredMessage="Informe o nome!">
+													<p:ajax event="blur" update="nome msgNome msgs" />
+												</p:inputText>
+												<p:message for="nome" id="msgNome" />
+
+												<p:outputLabel value="Email: " for="email" />
+												<p:inputText id="nome" placeholder="Inserir email"
+													value="#{medicoMBean.medico.email}" required="true"
+													requiredMessage="Informe o email!">
+													<p:ajax event="blur" update="email msgEmail msgs" />
+												</p:inputText>
+												<p:message for="email" id="msgEmail" />
+												
+												<p:outputLabel value="Senha: " for="senha" />
+												<p:inputText id="senha" placeholder="Inserir senha"
+													value="#{medicoMBean.medico.senha}" required="true"
+													requiredMessage="Informe a senha!">
+													<p:ajax event="blur" update="senha msgSenha msgs" />
+												</p:inputText>
+												<p:message for="senha" id="msgSenha" />
+
+												<p:outputLabel value="Genero: " for="genero" />
+												<p:inputText id="genero" placeholder="Inserir Genero"
+													value="#{medicoMBean.medico.genero}" required="true"
+													requiredMessage="Informe o Genero!">
+												</p:inputText>
+												<p:message for="genero" id="msgGenero" />
+
+												<p:outputLabel value="Idade: " for="idade" />
+												<p:inputText id="idade" placeholder="Inserir idade"
+													value="#{medicoMBean.medico.idade}" required="true"
+													requiredMessage="Informe a idade!">
+													<p:ajax event="blur" update="idade msgIdade msgs" />
+												</p:inputText>
+												<p:message for="idade" id="msgIdade" />
+
+												<p:outputLabel value="Registro: " for="registroMedico" />
+												<p:inputText id="registroMedico"
+													placeholder="Inserir registroMedico"
+													value="#{medicoMBean.medico.registroMedico}"
+													required="true" requiredMessage="Informe o registro medico">
+													<p:ajax event="blur"
+														update="registroMedico msgRegistroMedico msgs" />
+												</p:inputText>
+												<p:message for="registroMedico" id="msgRegistroMedico" />
+
+											</h:panelGrid>
+
+										</p:fieldset>
+										<br />
+										<p:commandButton action="#{medicoMBean.gravar}" value="Gravar"
+											icon="pi pi-plus" update="msgs formCadastroMedico"
+											styleClass="ui-button-success" />
+
+									</h:form>
+								</div>
+							</p:tab>
+						</p:tabView>
+					</div>
+				</div>
+			</div>
+		</h:body>
+	</ui:define>
+
+</ui:composition>
+
+</html>

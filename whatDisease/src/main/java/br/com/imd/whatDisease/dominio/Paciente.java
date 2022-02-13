@@ -8,10 +8,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Paciente implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -24,8 +28,14 @@ public class Paciente implements Serializable {
 	private String nome;
 	
 	@Column(length = 255, nullable = false)
+	private String email;
+	
+	@Column(length = 255, nullable = false)
+	private String senha;
+	
+	@Column(length = 255, nullable = false)
 	private String genero;
-
+	
 	@Column(nullable = false)
 	private Integer idade;
 	
@@ -34,18 +44,4 @@ public class Paciente implements Serializable {
 	
 	@Column(nullable = false, precision = 2)
 	private Double altura;
-
-	public Paciente(Integer id, String nome, String genero, Integer idade, Double peso, Double altura) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.genero = genero;
-		this.idade = idade;
-		this.peso = peso;
-		this.altura = altura;
-	}
-
-	public Paciente() {
-		super();
-	}
 }
