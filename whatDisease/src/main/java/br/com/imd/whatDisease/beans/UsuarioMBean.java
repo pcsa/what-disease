@@ -52,4 +52,10 @@ public class UsuarioMBean {
 			}
 		}
 	}
+
+	public String logout() throws CustomException {
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		session.invalidate();
+		return "index?faces-redirect=true";
+	}
 }

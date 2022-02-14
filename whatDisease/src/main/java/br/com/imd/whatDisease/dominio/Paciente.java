@@ -44,4 +44,8 @@ public class Paciente implements Serializable {
 	
 	@Column(nullable = false, precision = 2)
 	private Double altura;
+
+	public String getClassy(){
+		return this.getClass();
+	}
 }
