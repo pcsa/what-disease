@@ -46,6 +46,6 @@ public class Paciente implements Serializable {
 	private Double altura;
 
 	public String getClassy(){
-		return this.getClass();
+		return this.getClass().getSimpleName();
 	}
 }

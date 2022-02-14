@@ -42,4 +42,8 @@ public class Medico implements Serializable {
 	@Column(length = 255, nullable = false)
 	private String registroMedico;
 	
+	public String getClassy(){
+		return this.getClass().getSimpleName();
+	}
+	
 }
