@@ -25,6 +25,7 @@ public class MedicoMBean implements Serializable{
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		Medico medico = (Medico) session.getAttribute("user");
 		medicoDAO.excluir(medico);
+		session.invalidate();
 		return "index?faces-redirect=true";
 	}
 	
