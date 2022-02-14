@@ -4,12 +4,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 
-<h:head>
-	<title>What's your disease</title>
-</h:head>
-<h:body>
-	<h:outputLabel>Olá, JSF!</h:outputLabel>
-</h:body>
+<ui:composition template="/templates/defaultPage.xhtml">
+
+	<ui:define name="title">
+		What is my disease?
+	</ui:define>
+
+	<ui:define name="content">
+		<h:messages globalOnly="true" />
+		<h:body>
+			<div class="card">
+				<p:fieldset legend="Dados" id="dadosFieldSet">
+					<div class="p-col-10">
+						<div id="chart_div"></div>
+					</div>
+				</p:fieldset>
+			</div>
+		</h:body>
+	</ui:define>
+
+</ui:composition>
+
 </html>

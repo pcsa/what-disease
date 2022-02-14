@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<h:head>
+	<title>What's your disease</title>
+</h:head>
+<h:body>
+	<c:choose>
+		<c:when test="${sessionScope.user != null}">
+			<c:choose>
+				<c:when test="${sessionScope.user.getClassy().equals('Medico')}">
+					<h:form id="lftMM">
+						<p:fieldset legend="Opções" id="menu-medicos">
+							<p:menu>
+								<p:menuitem value="Início" outcome="index.xhtml"
+									icon="pi pi-home" />
+								<p:menuitem value="Adicionar sintoma" outcome="index.xhtml"
+									icon="pi pi-plus" />
+								<p:menuitem value="Adicionar doença" outcome="index.xhtml"
+									icon="pi pi-plus" />
+								<p:menuitem value="Editar dados" outcome="editar.xhtml"
+									icon="pi pi-pencil" />
+								<p:menuitem value="Sair" action="#{usuarioMBean.logout}"
+									icon="pi pi-times" />
+							</p:menu>
+						</p:fieldset>
+					</h:form>
+				</c:when>
+
+				<c:otherwise>
+					<h:form id="lftmP">
+						<p:fieldset legend="Opções" id="menu-paciente">
+							<p:menu>
+								<p:menuitem value="Início" outcome="index.xhtml"
+									icon="pi pi-home" />
+								<p:menuitem value="Nova busca" outcome="index.xhtml"
+									icon="pi pi-search" />
+								<p:menuitem value="Editar dados" outcome="editar.xhtml"
+									icon="pi pi-pencil" />
+								<p:menuitem value="Sair" action="#{usuarioMBean.logout}"
+									icon="pi pi-times" />
+							</p:menu>
+						</p:fieldset>
+					</h:form>
+				</c:otherwise>
+
+			</c:choose>
+		</c:when>
+		<c:otherwise>
+
+		</c:otherwise>
+	</c:choose>
+
+
+</h:body>
+</html>

@@ -9,7 +9,7 @@
 
         <!-- Database connection settings -->
         <property name="connection.driver_class">org.postgresql.Driver</property>
-        <property name="connection.url">jdbc:postgresql://localhost:5432/lojadev</property>
+        <property name="connection.url">jdbc:postgresql://localhost:5432/whatdisease</property>
         <property name="connection.username">postgres</property>
         <property name="connection.password">12345</property>
 
@@ -30,9 +30,12 @@
 
         <!-- Drop and re-create the database schema on startup --> <!--  create, update, validate -->
         <property name="hbm2ddl.auto">create</property>
+        <property name="hibernate.hbm2ddl.import_files">
+            /data.sql
+        </property>
 
         <mapping class="br.com.imd.whatDisease.dominio.Doenca"/>
-        <mapping class="br.com.imd.whatDisease.dominio.Remedio"/>
+        <mapping class="br.com.imd.whatDisease.dominio.Sintoma"/>
         <mapping class="br.com.imd.whatDisease.dominio.Paciente"/>
         <mapping class="br.com.imd.whatDisease.dominio.Medico"/>
 
