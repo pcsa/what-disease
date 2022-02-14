@@ -21,8 +21,11 @@ public class MedicoMBean implements Serializable{
 	private Medico medico = new Medico();
 	private MedicoDAO medicoDAO = new MedicoDAO();
 
-	public void apagar(Medico medico) throws CustomException {
+	public String apagar() throws CustomException {
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		Medico medico = (Medico) session.getAttribute("user");
 		medicoDAO.excluir(medico);
+		return "index?faces-redirect=true";
 	}
 	
 	public String gravar() throws CustomException {
@@ -37,7 +40,9 @@ public class MedicoMBean implements Serializable{
 	}
 	
 	
-	public void editar(Medico medico) throws CustomException {
+	public void editar() throws CustomException {
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		Medico medico = (Medico) session.getAttribute("user");
 		this.medico = medico;
 		medicoDAO.atualizar(this.medico);
 	}

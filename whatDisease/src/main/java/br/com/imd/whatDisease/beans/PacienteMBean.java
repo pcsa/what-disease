@@ -22,8 +22,11 @@ public class PacienteMBean implements Serializable {
 	private Paciente paciente = new Paciente();
 	private PacienteDAO pacienteDAO = new PacienteDAO();
 
-	public void apagar(Paciente paciente) throws CustomException {
+	public String apagar() throws CustomException {
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		Paciente paciente = (Paciente) session.getAttribute("user");
 		pacienteDAO.excluir(paciente);
+		return "index?faces-redirect=true";
 	}
 	
 	public String gravar() throws CustomException {
@@ -39,7 +42,9 @@ public class PacienteMBean implements Serializable {
 	}
 	
 	
-	public void editar(Paciente paciente) throws CustomException {
+	public void editar() throws CustomException {
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		Paciente paciente = (Paciente) session.getAttribute("user");
 		this.paciente = paciente;
 		pacienteDAO.atualizar(this.paciente);
 	}

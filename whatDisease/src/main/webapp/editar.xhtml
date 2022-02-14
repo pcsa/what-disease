@@ -88,8 +88,9 @@
 											update="msgs formCadastroPaciente"
 											styleClass="ui-button-success" />
 											
-										<p:button action="#{pacienteMBean.apagar}"
+										<p:commandButton action="#{pacienteMBean.apagar}"
 											value="Excluir conta"
+											immediate="true"
 											icon="pi pi-times"
 											styleClass="ui-button-danger" />
 
@@ -98,7 +99,6 @@
 							</c:when>
 							
 							<c:otherwise>
-					
 									<h:form id="formCadastroMedico">
 									<p:fieldset legend="Dados do Médico" id="dadosMedico">
 										<p:messages id="msgs" />
@@ -160,8 +160,9 @@
 											icon="pi pi-save" update="msgs formCadastroMedico"
 											styleClass="ui-button-success" />
 											
-										<p:button action="#{medicoMBean.apagar}"
+										<p:commandButton action="#{medicoMBean.apagar}"
 											value="Excluir conta"
+											immediate="true"
 											icon="pi pi-times"
 											styleClass="ui-button-danger" />
 						
