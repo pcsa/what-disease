@@ -11,41 +11,43 @@
 	<title>Header</title>
 </h:head>
 <h:body>
-	<div class="p-col-12">
-		<div class="p-grid">
-			<div class="p-col-4">
-				<div id="logo" class="float-left">
-					<a href="index.xhtml">
-						<h:graphicImage styleClass="logo" library="img" name="logo.png" />
-					</a>
+	<div class="card">
+		<div class="p-col-12">
+			<div class="p-grid">
+				<div class="p-col-4">
+					<div id="logo" class="float-left">
+						<a href="index.xhtml">
+							<h:graphicImage styleClass="logo" library="img" name="logo.png" />
+						</a>
+					</div>
+					<div id="branding">
+						<p>What's your disease?</p>
+					</div>
 				</div>
-				<div id="branding">
-					<p>What's your disease?</p>
+	
+				<div class="p-col-4">
+					<div id="header-center"></div>
 				</div>
-			</div>
-
-			<div class="p-col-4">
-				<div id="header-center"></div>
-			</div>
-
-
-			<div class="p-col-4">
-				<div class="float-right">
-					<div id="menu-superior">
-						<p:tabMenu activeIndex="#{param.i}">
-							<p:menuitem value="Home" outcome="index.xhtml"
-								icon="pi pi-fw pi-home">
-								<f:param name="i" value="0" />
-							</p:menuitem>
-							<p:menuitem value="Login" outcome="login.xhtml"
-								icon="pi pi-fw pi-users">
-								<f:param name="i" value="1" />
-							</p:menuitem>
-							<p:menuitem value="Cadastro" outcome="cadastro.xhtml"
-								icon="pi pi-fw pi-user-plus">
-								<f:param name="i" value="2" />
-							</p:menuitem>
-						</p:tabMenu>
+	
+	
+				<div class="p-col-4">
+					<div class="float-right">
+						<div id="menu-superior">
+							<p:tabMenu activeIndex="#{param.i}">
+								<p:menuitem value="Home" outcome="index.xhtml"
+									icon="pi pi-fw pi-home">
+									<f:param name="i" value="0" />
+								</p:menuitem>
+								<p:menuitem value="Login" outcome="login.xhtml"
+									icon="pi pi-fw pi-users">
+									<f:param name="i" value="1" />
+								</p:menuitem>
+								<p:menuitem value="Cadastro" outcome="cadastro.xhtml"
+									icon="pi pi-fw pi-user-plus">
+									<f:param name="i" value="2" />
+								</p:menuitem>
+							</p:tabMenu>
+						</div>
 					</div>
 				</div>
 			</div>

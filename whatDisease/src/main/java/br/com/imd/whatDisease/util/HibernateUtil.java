@@ -9,7 +9,7 @@ public class HibernateUtil {
     private static SessionFactory criarFabricaDeSessoes() {
         try {
         	Configuration configuracao = new Configuration();
-        	configuracao.configure("hibernate_postgres.cfg.xml");
+        	configuracao.configure("hibernate_mysql.cfg.xml");
         	return configuracao.buildSessionFactory();
         }
         catch (Throwable ex) {
