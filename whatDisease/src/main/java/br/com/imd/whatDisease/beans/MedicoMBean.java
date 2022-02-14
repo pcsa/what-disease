@@ -30,7 +30,6 @@ public class MedicoMBean implements Serializable{
 			medicoDAO.salvar(this.medico);
 			return "login?faces-redirect=true";
 		} else {
-			//medicoDAO.atualizar(this.medico);
 			HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 			session.invalidate();
 			return "";
@@ -38,7 +37,8 @@ public class MedicoMBean implements Serializable{
 	}
 	
 	
-	public void editar(Medico medico) {
+	public void editar(Medico medico) throws CustomException {
 		this.medico = medico;
+		medicoDAO.atualizar(this.medico);
 	}
 }

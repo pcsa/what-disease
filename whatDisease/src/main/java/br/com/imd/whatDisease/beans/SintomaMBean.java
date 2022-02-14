@@ -25,17 +25,15 @@ public class SintomaMBean implements Serializable {
 	}
 	
 	public void gravar() throws CustomException {
-		
 		if(this.sintoma.getId() == null) {
 			sintomaDAO.salvar(this.sintoma);
-		} else {
-			sintomaDAO.atualizar(this.sintoma);
-		}
+		} 
 	}
 	
 	
-	public void editar(Sintoma sintoma) {
+	public void editar(Sintoma sintoma) throws CustomException {
 		this.sintoma = sintoma;
+		sintomaDAO.atualizar(this.sintoma);
 	}
 
 }

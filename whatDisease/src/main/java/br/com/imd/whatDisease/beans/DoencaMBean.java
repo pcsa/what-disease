@@ -25,17 +25,15 @@ public class DoencaMBean implements Serializable {
 	}
 	
 	public void gravar() throws CustomException {
-		
 		if(this.doenca.getId() == null) {
 			doencaDAO.salvar(this.doenca);
-		} else {
-			doencaDAO.atualizar(this.doenca);
 		}
 	}
 	
 	
-	public void editar(Doenca doenca) {
+	public void editar(Doenca doenca) throws CustomException {
 		this.doenca = doenca;
+		doencaDAO.atualizar(this.doenca);
 	}
 
 }

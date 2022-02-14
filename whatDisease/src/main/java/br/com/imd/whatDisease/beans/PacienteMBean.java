@@ -32,7 +32,6 @@ public class PacienteMBean implements Serializable {
 			pacienteDAO.salvar(this.paciente);
 			return "login?faces-redirect=true";
 		} else {
-			//pacienteDAO.atualizar(this.paciente);
 			HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 			session.invalidate();
 			return "";
@@ -40,8 +39,9 @@ public class PacienteMBean implements Serializable {
 	}
 	
 	
-	public void editar(Paciente paciente) {
+	public void editar(Paciente paciente) throws CustomException {
 		this.paciente = paciente;
+		pacienteDAO.atualizar(this.paciente);
 	}
 
 }
